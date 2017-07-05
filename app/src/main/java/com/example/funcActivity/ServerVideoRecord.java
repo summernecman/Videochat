@@ -25,6 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.lib.util.LogUtil;
 import com.bairuitech.anychat.AnyChatBaseEvent;
 import com.bairuitech.anychat.AnyChatCoreSDK;
 import com.bairuitech.anychat.AnyChatDefine;
@@ -320,9 +321,8 @@ public class ServerVideoRecord extends Activity implements AnyChatBaseEvent,
 			case R.id.btn_serverRecording:
 				if (mServerRecordState == 1){
 					mServerRecordState = 0;
-					anyChatSDK.StreamRecordCtrlEx(mCurRecordUserID, 0, mdwFlags, 0,
-							"关闭服务器视频录制");
-					
+					anyChatSDK.StreamRecordCtrlEx(mCurRecordUserID, 0, mdwFlags, 0,"关闭服务器视频录制");
+					LogUtil.E("关闭服务器视频录制",mCurRecordUserID+"-"+mdwFlags);
 					mIBServerRecording.setImageResource(mArrServerRecordingImg[mServerRecordState]);
 					mServerRecordTimeTV.setVisibility(View.GONE);
 					mServerRecordTimer.cancel();
@@ -389,6 +389,7 @@ public class ServerVideoRecord extends Activity implements AnyChatBaseEvent,
 			
 			if (bCanRecord){
 				anyChatSDK.StreamRecordCtrlEx(mCurRecordUserID, 1, mdwFlags, 0, "开始录制");
+				LogUtil.E("开始录制",mCurRecordUserID+"-"+mdwFlags);
 				mServerRecordState = 1;
 				mServerRecordTimeSec = 0;
 				mServerRecordTimeTV.setText("00:00:00");
@@ -471,6 +472,7 @@ public class ServerVideoRecord extends Activity implements AnyChatBaseEvent,
 		mServerRecordState = 0;
 		mServerRecordTimeTV.setVisibility(View.GONE);
 		anyChatSDK.StreamRecordCtrlEx(mCurRecordUserID, 0, mdwFlags, 0, "关闭视频录制");
+
 		mIBServerRecording
 				.setImageResource(mArrServerRecordingImg[mServerRecordState]);
 		if (mServerRecordTimer != null){

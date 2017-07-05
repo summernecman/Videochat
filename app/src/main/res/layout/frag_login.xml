@@ -3,7 +3,7 @@
     <data>
         <variable
             name="userinfo"
-            type="com.siweisoft.service.user.UserInfo"/>
+            type="com.siweisoft.service.user.login.UserInfo"/>
     </data>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,16 +11,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 <EditText
+    android:hint="username"
     android:id="@+id/username"
     android:text="@{userinfo.name}"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
-    <EditText
-        android:id="@+id/pwd"
-        android:text="@{userinfo.pwd}"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
     <Button
+        android:text="登录"
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

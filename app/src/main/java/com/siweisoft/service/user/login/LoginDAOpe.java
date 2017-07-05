@@ -1,4 +1,4 @@
-package com.siweisoft.service.user;
+package com.siweisoft.service.user.login;
 
 //by summer on 2017-07-03.
 
@@ -16,4 +16,6 @@ public class LoginDAOpe extends BaseDAOpe {
     public void login(String name,String pwd){
 
     }
+
+
 }

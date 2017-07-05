@@ -1,6 +1,8 @@
 package com.example.anychatfeatures;
 
-public class RoleInfo {
+import java.io.Serializable;
+
+public class RoleInfo implements Serializable{
 	private String mStrName;
 	private String mStrUserID;
 	private int mRoleIconID;
@@ -27,5 +29,14 @@ public class RoleInfo {
 
 	public void setRoleIconID(int resID) {
 		mRoleIconID = resID;
+	}
+
+	@Override
+	public String toString() {
+		return "RoleInfo{" +
+				"mStrName='" + mStrName + '\'' +
+				", mStrUserID='" + mStrUserID + '\'' +
+				", mRoleIconID=" + mRoleIconID +
+				'}';
 	}
 }
